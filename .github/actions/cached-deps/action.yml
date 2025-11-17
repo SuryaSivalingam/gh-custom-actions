@@ -28,7 +28,7 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
       run: |
         npm ci
-        if[[ "$INPUT_CACHE" == "true" ]]; then
+        if [[ "$INPUT_CACHE" == "true" ]]; then
           echo "cached=true " >> $GITHUB_OUTPUT
         else
           echo "cached=false" >> $GITHUB_OUTPUT
