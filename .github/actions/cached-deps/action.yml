@@ -24,7 +24,7 @@ runs:
     - name: Install dependencies
       id: install
       env:
-        INPUT_CACHE= ${{inputs.caching}}
+        INPUT_CACHE: ${{inputs.caching}}
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
       run: |
         npm ci
