@@ -67,3 +67,16 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Setting environment
+        run: |
+          cd ./.github/actions/deploy-s3-js
+          npm init -y
+          npm install @actions/core @actions/exec @actions/github
+      - name: Printing from custom Javascript actions
+        uses: ./.github/actions/deploy-s3-js
