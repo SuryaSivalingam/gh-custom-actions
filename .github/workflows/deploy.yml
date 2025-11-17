@@ -20,9 +20,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v5
       - name: Install dependencies from cache
+        id: cache
         uses: ./.github/actions/cached-deps
         with:
           caching: 'true'
+      - name: Used cache
+        run: echo "Cache used? ${{ steps.cache.outputs.used-cache}}"
       - name: Test code
         id: run-tests
         run: npm run test
