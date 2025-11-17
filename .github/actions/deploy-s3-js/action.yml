@@ -1,5 +1,20 @@
 name: 'Deploy in AWS s3'
-description: ""
+description: "Deploy a static website to AWS S3"
+inputs:
+  bucket-name:
+    description: 'The name of S3 bucket'
+    required: true
+  bucket-region:
+    description: 'Region name where bucket is created'
+    required: false
+    default: 'us-east-1'
+  artifact-folder:
+    description: 'The output folder created after job completes'
+    required: true
+
+outputs:
+  website-url:
+    description: 'The URL of deployed website'
 runs:
   using: 'node24'
   main: 'main.js'
